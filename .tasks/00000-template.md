@@ -8,7 +8,7 @@
 | ----------- | ---------------------------------- |
 | **ID**      | 00000                              |
 | **Status**  | `backlog` / `in-progress` / `done` |
-| **Branch**  | `feat/00000-task-slug`             |
+| **Branch**  | `feat/task-slug`                   |
 | **PR**      |                                    |
 | **Created** | YYYY-MM-DD                         |
 | **Closed**  |                                    |
@@ -52,7 +52,7 @@ Any additional context, decisions made during implementation, trade-offs, or thi
 ## Workflow Reference
 
 1. Copy this template to create a new task: `cp 00000-template.md XXXXX-task-slug.md`
-2. Create a branch from up-to-date `main`: `git checkout -b feat/XXXXX-task-slug`
+2. Create a branch from up-to-date `main`: `git checkout -b feat/task-slug` (no task ID in branch name)
 3. Implement the task following the checklist above
 4. Use **Conventional Commits** (`feat:`, `fix:`, `chore:`, `refactor:`, `docs:`, `build:`, `test:`)
 5. Open a PR with the title format: `[XXXXX] Short descriptive title in English`
