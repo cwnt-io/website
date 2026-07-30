@@ -29,6 +29,10 @@
 		"data": {
 			"title": "Data & Hosting",
 			"description": "Data processing, application hosting, and internet services infrastructure."
+		},
+		"training": {
+			"title": "Training",
+			"description": "Technical training and workshops on software development, architecture, and modern engineering practices."
 		}
 	},
 	"clients": {
@@ -36,15 +40,11 @@
 		"title": "Who we work with",
 		"vlg": {
 			"name": "VLG Investimentos",
-			"description": "CTO and software engineering for a financial group spanning asset management, insurance, corporate services, and media."
-		},
-		"planfy": {
-			"name": "SejaPlanfy",
-			"description": "CTO and software engineering for a financial planning and advisory platform."
+			"description": "Technology consulting and software development for a financial investment group."
 		},
 		"quadrant": {
 			"name": "Quadrant Health",
-			"description": "Software development for a healthcare technology company."
+			"description": "Software development for a healthcare company building AI-powered agents for clinical operations."
 		}
 	},
 	"opensource": {
