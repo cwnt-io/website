@@ -566,7 +566,7 @@
 
 	.services-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-template-columns: repeat(3, 1fr);
 		gap: 1.25rem;
 	}
 
@@ -640,7 +640,7 @@
 
 	.opensource-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-template-columns: repeat(3, 1fr);
 		gap: 1rem;
 	}
 
@@ -703,7 +703,7 @@
 
 	.clients-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-template-columns: repeat(2, 1fr);
 		gap: 1.25rem;
 	}
 
@@ -783,7 +783,7 @@
 
 	.contact-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		grid-template-columns: repeat(4, 1fr);
 		gap: 1.25rem;
 	}
 
@@ -828,9 +828,11 @@
 	}
 
 	.contact-value {
-		font-size: 1.05rem;
+		font-size: 0.95rem;
 		font-weight: 500;
 		color: var(--color-text);
+		word-break: break-word;
+		overflow-wrap: break-word;
 	}
 
 	a.contact-value:hover {
@@ -881,6 +883,20 @@
 	/* ========================
 	   Responsive
 	   ======================== */
+	@media (max-width: 1024px) {
+		.services-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.opensource-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.contact-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
 	@media (max-width: 768px) {
 		.nav-content {
 			padding: 0.75rem 1.25rem;
@@ -914,6 +930,11 @@
 			padding: 4rem 0 5rem;
 		}
 
+		.opensource,
+		.clients {
+			padding: 0 0 5rem;
+		}
+
 		.contact {
 			padding: 0 0 5rem;
 		}
@@ -923,6 +944,15 @@
 			gap: 0.75rem;
 			text-align: center;
 			padding: 0 1.25rem;
+		}
+	}
+
+	@media (max-width: 580px) {
+		.services-grid,
+		.opensource-grid,
+		.clients-grid,
+		.contact-grid {
+			grid-template-columns: 1fr;
 		}
 	}
 
