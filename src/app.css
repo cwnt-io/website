@@ -1,14 +1,55 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap');
 
 :root {
-	--color-bg: #0a0a0a;
-	--color-surface: #141414;
-	--color-border: #262626;
-	--color-text: #fafafa;
-	--color-text-muted: #a1a1aa;
-	--color-accent: #3b82f6;
-	--color-accent-hover: #2563eb;
 	--max-width: 1100px;
+	--font-body: 'Inter', system-ui, -apple-system, sans-serif;
+	--font-mono: 'JetBrains Mono', monospace;
+	--radius: 12px;
+	--transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Dark theme (default) */
+html[data-theme='dark'] {
+	--color-bg: #09090b;
+	--color-surface: #12101a;
+	--color-surface-hover: #1a1725;
+	--color-border: #2a2438;
+	--color-border-hover: #3d3456;
+	--color-text: #f0ecf9;
+	--color-text-muted: #9b8eb8;
+	--color-accent: #8b5cf6;
+	--color-accent-hover: #a78bfa;
+	--color-accent-glow: rgba(139, 92, 246, 0.25);
+	--color-green: #10b981;
+	--color-green-glow: rgba(16, 185, 129, 0.2);
+	--color-red: #f43f5e;
+	--nav-bg: rgba(9, 9, 11, 0.82);
+	--hero-orb-1: rgba(139, 92, 246, 0.12);
+	--hero-orb-2: rgba(16, 185, 129, 0.08);
+	--hero-orb-3: rgba(139, 92, 246, 0.06);
+	--card-glow: rgba(139, 92, 246, 0.08);
+}
+
+/* Light theme */
+html[data-theme='light'] {
+	--color-bg: #faf8ff;
+	--color-surface: #ffffff;
+	--color-surface-hover: #f5f0ff;
+	--color-border: #e4ddf0;
+	--color-border-hover: #c9bfe0;
+	--color-text: #1a1425;
+	--color-text-muted: #6b5f8a;
+	--color-accent: #7c3aed;
+	--color-accent-hover: #6d28d9;
+	--color-accent-glow: rgba(124, 58, 237, 0.15);
+	--color-green: #059669;
+	--color-green-glow: rgba(5, 150, 105, 0.12);
+	--color-red: #e11d48;
+	--nav-bg: rgba(250, 248, 255, 0.82);
+	--hero-orb-1: rgba(124, 58, 237, 0.08);
+	--hero-orb-2: rgba(5, 150, 105, 0.06);
+	--hero-orb-3: rgba(124, 58, 237, 0.04);
+	--card-glow: rgba(124, 58, 237, 0.05);
 }
 
 * {
@@ -22,19 +63,26 @@ html {
 }
 
 body {
-	font-family: 'Inter', system-ui, -apple-system, sans-serif;
+	font-family: var(--font-body);
 	background-color: var(--color-bg);
 	color: var(--color-text);
 	line-height: 1.6;
 	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	overflow-x: hidden;
 }
 
 a {
 	color: var(--color-accent);
 	text-decoration: none;
-	transition: color 0.2s;
+	transition: color var(--transition);
 }
 
 a:hover {
 	color: var(--color-accent-hover);
+}
+
+::selection {
+	background: var(--color-accent);
+	color: #fff;
 }
