@@ -43,5 +43,10 @@
 	"language": {
 		"en": "Inglês",
 		"pt": "Português"
+	},
+	"theme": {
+		"system": "Sistema",
+		"light": "Claro",
+		"dark": "Escuro"
 	}
 }

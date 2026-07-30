@@ -31,18 +31,28 @@ Built with SvelteKit, deployed via GitHub Pages with GitHub Actions.
 Tasks are tracked as markdown files in `.tasks/`. No external tools (Jira, Linear, etc.).
 
 - **Template**: `.tasks/00000-template.md` — copy it for every new task
-- **Naming**: `XXXXX-task-slug.md` (zero-padded, incrementing)
-- **Branch**: `feat/XXXXX-task-slug` (or `fix/`, `chore/`, etc.)
-- **PR title**: `[XXXXX] Short descriptive title in English`
+- **Task file naming**: `XXXXX-task-slug.md` (zero-padded 5-digit ID, incrementing)
+- **Branch naming**: `{type}/task-slug` (e.g., `feat/website-redesign`, `fix/i18n-toggle`) — **NO task ID in branch name**
+- **PR title format**: `[XXXXX] Short descriptive title in English`
 - **Everything in English**: task files, branch names, PR titles, commit messages, code, comments
 
-### Workflow
+### Starting a new task
 
-1. Copy the template → fill in description, acceptance criteria, implementation checklist
-2. Create a branch from up-to-date `main`
-3. Implement, commit semantically (Conventional Commits)
-4. Open a PR following the title format
-5. Update task status, PR link, and closed date
+1. Check the latest task ID on `main`: `ls .tasks/` and pick the next number
+2. Create the task file: `cp .tasks/00000-template.md .tasks/XXXXX-task-slug.md`
+3. Fill in: description, acceptance criteria, implementation checklist
+4. Checkout and update main: `git checkout main && git pull`
+5. Create a branch: `git checkout -b {type}/task-slug`
+6. Commit the task file first: `git commit -m "docs: add task file for ..."`
+7. Implement the task, committing semantically (Conventional Commits)
+8. Push and open a PR with title: `[XXXXX] Title in English`
+9. Update the task file: set **Status** to `done`, add **PR** link and **Closed** date
+
+### CI checks on PRs to main
+
+- PR title MUST match `[XXXXX] ...` format
+- Task file `.tasks/XXXXX-*.md` MUST exist in the branch
+- Task ID MUST NOT already exist on `main` (no duplicates)
 
 ## Autonomy
 
