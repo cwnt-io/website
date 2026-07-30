@@ -22,7 +22,8 @@
 		{ symbol: 'SOLUSDT', label: 'SOL/USDT' },
 		{ symbol: 'BNBUSDT', label: 'BNB/USDT' },
 		{ symbol: 'XRPUSDT', label: 'XRP/USDT' },
-		{ symbol: 'ADAUSDT', label: 'ADA/USDT' }
+		{ symbol: 'ADAUSDT', label: 'ADA/USDT' },
+		{ symbol: 'XMRUSDT', label: 'XMR/USDT' }
 	];
 
 	const MAX_CANDLES = 200;
