@@ -7,7 +7,7 @@
 | Field       | Value                              |
 | ----------- | ---------------------------------- |
 | **ID**      | 00015                              |
-| **Status**  | `in-progress`                      |
+| **Status**  | `done`                             |
 | **Branch**  | `feat/hero-chart-horizontal-line`  |
 | **PR**      |                                    |
 | **Created** | 2026-07-30                         |
