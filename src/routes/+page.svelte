@@ -43,15 +43,15 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content={t('meta.title')} />
 	<meta property="og:description" content={t('meta.description')} />
-	<meta property="og:image" content="https://cwnt.io/logo.png" />
+	<meta property="og:image" content="https://cwnt-io.github.io/website/logo.png" />
 	<meta property="og:image:width" content="460" />
 	<meta property="og:image:height" content="460" />
 	<meta property="og:site_name" content="CWNT" />
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content={t('meta.title')} />
 	<meta name="twitter:description" content={t('meta.description')} />
-	<meta name="twitter:image" content="https://cwnt.io/logo.png" />
-	<link rel="canonical" href="https://cwnt.io/" />
+	<meta name="twitter:image" content="https://cwnt-io.github.io/website/logo.png" />
+	<link rel="canonical" href="https://cwnt-io.github.io/website/" />
 </svelte:head>
 
 <!-- Navigation -->
