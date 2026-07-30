@@ -5,11 +5,11 @@
 | Field       | Value                                     |
 | ----------- | ----------------------------------------- |
 | **ID**      | 00003                                     |
-| **Status**  | `in-progress`                             |
+| **Status**  | `done`                                    |
 | **Branch**  | `feat/clients-and-opensource-sections`     |
 | **PR**      |                                           |
 | **Created** | 2026-07-30                                |
-| **Closed**  |                                           |
+| **Closed**  | 2026-07-30                                |
 
 ## Description
 
@@ -34,20 +34,20 @@ CWNT has worked with several companies as CTO and software engineering partner. 
 
 ## Acceptance Criteria
 
-- [ ] Clients section with company names/logos
-- [ ] Open source section with project links to GitHub
-- [ ] i18n support (EN/PT)
-- [ ] Consistent styling with existing design
-- [ ] Responsive layout
-- [ ] Site builds successfully
+- [x] Clients section with company names/logos
+- [x] Open source section with project links to GitHub
+- [x] i18n support (EN/PT)
+- [x] Consistent styling with existing design
+- [x] Responsive layout
+- [x] Site builds successfully
 
 ## Implementation Checklist
 
-- [ ] Add i18n translations for both sections
-- [ ] Add clients section to page
-- [ ] Add open source section to page
-- [ ] Style both sections
-- [ ] Test build
+- [x] Add i18n translations for both sections
+- [x] Add clients section to page
+- [x] Add open source section to page
+- [x] Style both sections
+- [x] Test build
 
 ## Notes
 
