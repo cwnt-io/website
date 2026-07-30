@@ -5,11 +5,11 @@
 | Field       | Value                          |
 | ----------- | ------------------------------ |
 | **ID**      | 00002                          |
-| **Status**  | `in-progress`                  |
+| **Status**  | `done`                         |
 | **Branch**  | `feat/00002-website-redesign`  |
 | **PR**      |                                |
 | **Created** | 2026-07-30                     |
-| **Closed**  |                                |
+| **Closed**  | 2026-07-30                     |
 
 ## Description
 
@@ -25,31 +25,31 @@ Complete redesign of the CWNT institutional website. The current version is a ba
 
 ## Acceptance Criteria
 
-- [ ] Logo displayed prominently in nav and hero section
-- [ ] Color scheme derived from logo (purple, black, green accents)
-- [ ] Dark theme (default) with stunning gradients and visual effects
-- [ ] Light theme with clean, professional look
-- [ ] Theme toggle: System / Light / Dark
-- [ ] i18n toggle works correctly (EN/PT with full reactivity)
-- [ ] Hero section with compelling background (gradient, glow effects, or animated elements)
-- [ ] Responsive design (mobile, tablet, desktop)
-- [ ] Site builds successfully with static adapter
+- [x] Logo displayed prominently in nav and hero section
+- [x] Color scheme derived from logo (purple, black, green accents)
+- [x] Dark theme (default) with stunning gradients and visual effects
+- [x] Light theme with clean, professional look
+- [x] Theme toggle: System / Light / Dark
+- [x] i18n toggle works correctly (EN/PT with full reactivity)
+- [x] Hero section with compelling background (gradient, glow effects, or animated elements)
+- [x] Responsive design (mobile, tablet, desktop)
+- [x] Site builds successfully with static adapter
 - [ ] Deployed via GitHub Pages
 
 ## Implementation Checklist
 
-- [ ] Add logo to static assets
-- [ ] Define color palette (CSS custom properties) for dark and light themes
-- [ ] Implement theme system (system preference detection, manual toggle, localStorage persistence)
-- [ ] Fix i18n reactivity (Svelte 5 runes integration)
-- [ ] Redesign nav: logo, links, theme toggle, language toggle
-- [ ] Redesign hero: gradient background, glow effects, logo showcase
-- [ ] Redesign services section: modern cards with hover effects
-- [ ] Redesign contact section
-- [ ] Redesign footer
-- [ ] Add smooth animations and transitions
-- [ ] Test build
-- [ ] Verify responsive behavior
+- [x] Add logo to static assets
+- [x] Define color palette (CSS custom properties) for dark and light themes
+- [x] Implement theme system (system preference detection, manual toggle, localStorage persistence)
+- [x] Fix i18n reactivity (Svelte 5 runes integration)
+- [x] Redesign nav: logo, links, theme toggle, language toggle
+- [x] Redesign hero: gradient background, glow effects, logo showcase
+- [x] Redesign services section: modern cards with hover effects
+- [x] Redesign contact section
+- [x] Redesign footer
+- [x] Add smooth animations and transitions
+- [x] Test build
+- [x] Verify responsive behavior
 
 ## Notes
 
