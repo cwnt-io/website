@@ -29,6 +29,10 @@
 		"data": {
 			"title": "Dados & Hospedagem",
 			"description": "Processamento de dados, hospedagem de aplicações e infraestrutura de serviços na internet."
+		},
+		"training": {
+			"title": "Treinamento",
+			"description": "Treinamentos técnicos e workshops sobre desenvolvimento de software, arquitetura e práticas modernas de engenharia."
 		}
 	},
 	"clients": {
@@ -36,15 +40,11 @@
 		"title": "Com quem trabalhamos",
 		"vlg": {
 			"name": "VLG Investimentos",
-			"description": "CTO e engenharia de software para um grupo financeiro abrangendo gestão de ativos, seguros, serviços corporativos e mídia."
-		},
-		"planfy": {
-			"name": "SejaPlanfy",
-			"description": "CTO e engenharia de software para uma plataforma de planejamento e consultoria financeira."
+			"description": "Consultoria em tecnologia e desenvolvimento de software para um grupo de investimentos financeiros."
 		},
 		"quadrant": {
 			"name": "Quadrant Health",
-			"description": "Desenvolvimento de software para uma empresa de tecnologia em saúde."
+			"description": "Desenvolvimento de software para uma empresa de saúde que constrói agentes de IA para operações clínicas."
 		}
 	},
 	"opensource": {
