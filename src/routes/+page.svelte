@@ -2,6 +2,7 @@
 	import { t, changeLanguage, currentLanguage, type Language } from '$lib/i18n/index.svelte';
 	import { currentTheme, cycleTheme, type Theme } from '$lib/theme/index.svelte';
 	import { onMount } from 'svelte';
+	import CandlestickBg from '$lib/components/CandlestickBg.svelte';
 	import logo from '$lib/assets/logo.png';
 	import logoVlg from '$lib/assets/clients/vlg.png';
 	import logoQuadrant from '$lib/assets/clients/quadrant.svg';
@@ -84,6 +85,7 @@
 <!-- Hero -->
 <section class="hero">
 	<div class="hero-bg">
+		<CandlestickBg />
 		<div class="hero-orb hero-orb-1"></div>
 		<div class="hero-orb hero-orb-2"></div>
 		<div class="hero-orb hero-orb-3"></div>
