@@ -17,13 +17,12 @@
 
 	const TICKERS: TickerInfo[] = [
 		{ symbol: 'BTCUSDT', label: 'BTC/USDT' },
+		{ symbol: 'BTCBRL', label: 'BTC/BRL' },
 		{ symbol: 'ETHUSDT', label: 'ETH/USDT' },
 		{ symbol: 'SOLUSDT', label: 'SOL/USDT' },
 		{ symbol: 'BNBUSDT', label: 'BNB/USDT' },
 		{ symbol: 'XRPUSDT', label: 'XRP/USDT' },
-		{ symbol: 'DOGEUSDT', label: 'DOGE/USDT' },
-		{ symbol: 'ADAUSDT', label: 'ADA/USDT' },
-		{ symbol: 'AVAXUSDT', label: 'AVAX/USDT' }
+		{ symbol: 'ADAUSDT', label: 'ADA/USDT' }
 	];
 
 	const MAX_CANDLES = 200;
