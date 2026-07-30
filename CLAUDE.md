@@ -26,6 +26,24 @@ Built with SvelteKit, deployed via GitHub Pages with GitHub Actions.
 - **Deploy**: GitHub Pages via GitHub Actions
 - **Styling**: Plain CSS (no frameworks)
 
+## Task Management
+
+Tasks are tracked as markdown files in `.tasks/`. No external tools (Jira, Linear, etc.).
+
+- **Template**: `.tasks/00000-template.md` — copy it for every new task
+- **Naming**: `XXXXX-task-slug.md` (zero-padded, incrementing)
+- **Branch**: `feat/XXXXX-task-slug` (or `fix/`, `chore/`, etc.)
+- **PR title**: `[XXXXX] Short descriptive title in English`
+- **Everything in English**: task files, branch names, PR titles, commit messages, code, comments
+
+### Workflow
+
+1. Copy the template → fill in description, acceptance criteria, implementation checklist
+2. Create a branch from up-to-date `main`
+3. Implement, commit semantically (Conventional Commits)
+4. Open a PR following the title format
+5. Update task status, PR link, and closed date
+
 ## Autonomy
 
 - Do NOT ask for permission to commit, create files, or run commands
