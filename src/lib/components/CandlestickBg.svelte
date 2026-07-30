@@ -10,30 +10,31 @@
 	}
 
 	const MAX_CANDLES = 200;
-	const CANDLE_WIDTH = 6;
+	const CANDLE_WIDTH = 8;
 	const CANDLE_GAP = 3;
-	const WICK_WIDTH = 1;
-	const BINANCE_REST = 'https://api.binance.com/api/v3/klines';
-	const BINANCE_WS = 'wss://stream.binance.com:9443/ws/btcusdt@kline_1m';
+	const WICK_WIDTH = 1.5;
+	const BINANCE_REST = 'https://data-api.binance.vision/api/v3/klines';
+	const BINANCE_WS = 'wss://data-stream.binance.vision/ws/btcusdt@kline_1m';
 
 	let canvas: HTMLCanvasElement;
 	let candles: Candle[] = [];
 	let animationId: number;
 	let ws: WebSocket | null = null;
+	let wsAlive = false;
 
 	function getColors(): { bull: string; bear: string; wick: string } {
 		const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 		if (isDark) {
 			return {
-				bull: 'rgba(16, 185, 129, 0.35)',
-				bear: 'rgba(244, 63, 94, 0.3)',
-				wick: 'rgba(255, 255, 255, 0.08)'
+				bull: 'rgba(16, 185, 129, 0.45)',
+				bear: 'rgba(244, 63, 94, 0.4)',
+				wick: 'rgba(255, 255, 255, 0.12)'
 			};
 		}
 		return {
-			bull: 'rgba(5, 150, 105, 0.25)',
-			bear: 'rgba(225, 29, 72, 0.2)',
-			wick: 'rgba(0, 0, 0, 0.06)'
+			bull: 'rgba(5, 150, 105, 0.35)',
+			bear: 'rgba(225, 29, 72, 0.3)',
+			wick: 'rgba(0, 0, 0, 0.1)'
 		};
 	}
 
@@ -69,7 +70,8 @@
 		const padding = h * 0.1;
 		const chartHeight = h - padding * 2;
 
-		const toY = (price: number) => padding + chartHeight - ((price - minPrice) / priceRange) * chartHeight;
+		const toY = (price: number) =>
+			padding + chartHeight - ((price - minPrice) / priceRange) * chartHeight;
 
 		const colors = getColors();
 		const startX = w - visible.length * step;
@@ -97,8 +99,11 @@
 
 	async function fetchHistory() {
 		try {
-			const res = await fetch(`${BINANCE_REST}?symbol=BTCUSDT&interval=1m&limit=${MAX_CANDLES}`);
+			const res = await fetch(
+				`${BINANCE_REST}?symbol=BTCUSDT&interval=1m&limit=${MAX_CANDLES}`
+			);
 			const data = await res.json();
+			if (!Array.isArray(data)) return;
 			candles = data.map((k: (string | number)[]) => ({
 				time: Number(k[0]),
 				open: parseFloat(k[1] as string),
@@ -112,7 +117,11 @@
 	}
 
 	function connectWs() {
-		ws = new WebSocket(BINANCE_WS);
+		try {
+			ws = new WebSocket(BINANCE_WS);
+		} catch {
+			return;
+		}
 
 		ws.onmessage = (event) => {
 			try {
@@ -143,8 +152,19 @@
 			}
 		};
 
+		ws.onopen = () => {
+			wsAlive = true;
+		};
+
 		ws.onclose = () => {
-			setTimeout(connectWs, 5000);
+			if (wsAlive) {
+				wsAlive = false;
+				setTimeout(connectWs, 5000);
+			}
+		};
+
+		ws.onerror = () => {
+			wsAlive = false;
 		};
 	}
 
