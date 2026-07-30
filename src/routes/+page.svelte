@@ -22,8 +22,17 @@
 	};
 
 	let mounted = $state(false);
+	let scrolled = $state(false);
+
+	function handleScroll() {
+		scrolled = window.scrollY > 50;
+	}
+
 	onMount(() => {
 		mounted = true;
+		handleScroll();
+		window.addEventListener('scroll', handleScroll, { passive: true });
+		return () => window.removeEventListener('scroll', handleScroll);
 	});
 </script>
 
@@ -34,19 +43,19 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:title" content={t('meta.title')} />
 	<meta property="og:description" content={t('meta.description')} />
-	<meta property="og:image" content="https://cwnt.io/logo.png" />
+	<meta property="og:image" content="https://cwnt-io.github.io/website/logo.png" />
 	<meta property="og:image:width" content="460" />
 	<meta property="og:image:height" content="460" />
 	<meta property="og:site_name" content="CWNT" />
 	<meta name="twitter:card" content="summary" />
 	<meta name="twitter:title" content={t('meta.title')} />
 	<meta name="twitter:description" content={t('meta.description')} />
-	<meta name="twitter:image" content="https://cwnt.io/logo.png" />
-	<link rel="canonical" href="https://cwnt.io/" />
+	<meta name="twitter:image" content="https://cwnt-io.github.io/website/logo.png" />
+	<link rel="canonical" href="https://cwnt-io.github.io/website/" />
 </svelte:head>
 
 <!-- Navigation -->
-<nav class:mounted>
+<nav class:mounted class:scrolled>
 	<div class="nav-content">
 		<a href="/" class="nav-brand">
 			<img src={logo} alt="CWNT" class="nav-logo" />
@@ -75,10 +84,13 @@
 <!-- Hero -->
 <section class="hero">
 	<div class="hero-bg">
+		<div class="hero-aurora"></div>
 		<div class="hero-orb hero-orb-1"></div>
 		<div class="hero-orb hero-orb-2"></div>
 		<div class="hero-orb hero-orb-3"></div>
+		<div class="hero-orb hero-orb-4"></div>
 		<div class="hero-grid"></div>
+		<div class="hero-noise"></div>
 	</div>
 	<div class="hero-content" class:mounted>
 		<img src={logo} alt="CWNT" class="hero-logo" />
@@ -239,14 +251,14 @@
 					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
 				</div>
 				<span class="contact-label">{t('contact.linkedin')}</span>
-				<a href="https://linkedin.com/company/cwnt/" target="_blank" rel="noopener noreferrer" class="contact-value">linkedin.com/company/cwnt</a>
+				<a href="https://linkedin.com/company/cwnt/" target="_blank" rel="noopener noreferrer" class="contact-value">CWNT<span class="external-arrow">&nearr;</span></a>
 			</div>
 			<div class="contact-card">
 				<div class="contact-icon">
 					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
 				</div>
 				<span class="contact-label">{t('contact.github')}</span>
-				<a href="https://github.com/cwnt-io" target="_blank" rel="noopener noreferrer" class="contact-value">github.com/cwnt-io</a>
+				<a href="https://github.com/cwnt-io" target="_blank" rel="noopener noreferrer" class="contact-value">cwnt-io<span class="external-arrow">&nearr;</span></a>
 			</div>
 		</div>
 	</section>
@@ -273,16 +285,25 @@
 		left: 0;
 		right: 0;
 		z-index: 100;
-		background: var(--nav-bg);
-		backdrop-filter: blur(16px);
-		-webkit-backdrop-filter: blur(16px);
-		border-bottom: 1px solid var(--color-border);
+		background: transparent;
+		border-bottom: 1px solid transparent;
 		transform: translateY(-100%);
-		transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+		transition:
+			transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+			background 0.3s ease,
+			border-color 0.3s ease,
+			backdrop-filter 0.3s ease;
 	}
 
 	nav.mounted {
 		transform: translateY(0);
+	}
+
+	nav.scrolled {
+		background: var(--nav-bg);
+		backdrop-filter: blur(16px);
+		-webkit-backdrop-filter: blur(16px);
+		border-bottom-color: var(--color-border);
 	}
 
 	.nav-content {
@@ -374,58 +395,119 @@
 		position: absolute;
 		inset: 0;
 		pointer-events: none;
-		background: var(--hero-gradient);
+		overflow: hidden;
+	}
+
+	.hero-aurora {
+		position: absolute;
+		inset: -30%;
+		background: conic-gradient(
+			from 140deg at 50% 30%,
+			var(--color-accent) 0%,
+			var(--color-green) 25%,
+			var(--color-accent) 50%,
+			var(--color-green) 75%,
+			var(--color-accent) 100%
+		);
+		filter: blur(100px) saturate(1.5);
+		opacity: var(--aurora-opacity);
+		animation: aurora-drift 20s ease-in-out infinite alternate;
+	}
+
+	@keyframes aurora-drift {
+		0% { transform: translate3d(-4%, -2%, 0) rotate(0deg) scale(1); }
+		50% { transform: translate3d(2%, 3%, 0) rotate(4deg) scale(1.05); }
+		100% { transform: translate3d(4%, -1%, 0) rotate(8deg) scale(1); }
 	}
 
 	.hero-orb {
 		position: absolute;
 		border-radius: 50%;
-		filter: blur(100px);
+		filter: blur(80px);
 	}
 
 	.hero-orb-1 {
-		width: 600px;
-		height: 600px;
-		background: var(--hero-orb-1);
-		top: -10%;
-		left: -10%;
-		animation: float 20s ease-in-out infinite;
+		width: 55vw;
+		height: 55vw;
+		background: radial-gradient(circle, var(--color-accent), transparent 70%);
+		top: -20%;
+		left: -15%;
+		opacity: var(--orb-opacity);
+		animation: orb-drift-1 14s ease-in-out infinite alternate;
 	}
 
 	.hero-orb-2 {
-		width: 500px;
-		height: 500px;
-		background: var(--hero-orb-2);
-		bottom: -10%;
-		right: -5%;
-		animation: float 25s ease-in-out infinite reverse;
+		width: 45vw;
+		height: 45vw;
+		background: radial-gradient(circle, var(--color-green), transparent 70%);
+		bottom: -15%;
+		right: -10%;
+		opacity: var(--orb-opacity);
+		animation: orb-drift-2 11s ease-in-out infinite alternate;
+		animation-delay: -4s;
 	}
 
 	.hero-orb-3 {
-		width: 400px;
-		height: 400px;
-		background: var(--hero-orb-3);
-		top: 40%;
-		left: 50%;
-		animation: float 18s ease-in-out infinite 5s;
+		width: 50vw;
+		height: 50vw;
+		background: radial-gradient(circle, #6d28d9, transparent 70%);
+		top: 25%;
+		left: 35%;
+		opacity: calc(var(--orb-opacity) * 0.7);
+		animation: orb-drift-3 16s ease-in-out infinite alternate;
+		animation-delay: -7s;
+	}
+
+	.hero-orb-4 {
+		width: 35vw;
+		height: 35vw;
+		background: radial-gradient(circle, var(--color-green), transparent 70%);
+		top: -5%;
+		right: 15%;
+		opacity: calc(var(--orb-opacity) * 0.5);
+		animation: orb-drift-1 19s ease-in-out infinite alternate;
+		animation-delay: -10s;
+	}
+
+	@keyframes orb-drift-1 {
+		0% { transform: scale(1) translate(0, 0); }
+		100% { transform: scale(1.2) translate(12%, -15%); }
+	}
+
+	@keyframes orb-drift-2 {
+		0% { transform: scale(1) translate(0, 0); }
+		100% { transform: scale(0.9) translate(-15%, 18%); }
+	}
+
+	@keyframes orb-drift-3 {
+		0% { transform: scale(1) translate(0, 0); }
+		100% { transform: scale(1.15) translate(8%, -12%); }
 	}
 
 	.hero-grid {
 		position: absolute;
 		inset: 0;
 		background-image:
-			linear-gradient(var(--color-border) 1px, transparent 1px),
-			linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
-		background-size: 60px 60px;
-		opacity: 0.3;
-		mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 100%);
-		-webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, black 20%, transparent 100%);
+			linear-gradient(rgba(139, 92, 246, 0.08) 1px, transparent 1px),
+			linear-gradient(90deg, rgba(139, 92, 246, 0.08) 1px, transparent 1px);
+		background-size: 28px 28px;
+		mask-image: radial-gradient(ellipse 60% 50% at 50% 45%, black 30%, transparent 100%);
+		-webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 45%, black 30%, transparent 100%);
 	}
 
-	@keyframes float {
-		0%, 100% { transform: translate(0, 0); }
-		33% { transform: translate(30px, -30px); }
-		66% { transform: translate(-20px, 20px); }
+	.hero-noise {
+		position: absolute;
+		inset: 0;
+		opacity: 0.04;
+		mix-blend-mode: overlay;
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+		background-repeat: repeat;
+		background-size: 256px 256px;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.hero-aurora,
+		.hero-orb { animation: none; }
 	}
 
 	.hero-content {
