@@ -17,7 +17,7 @@ Add two new sections to the website: a Clients section showcasing companies CWNT
 
 ### Background / Context
 
-CWNT has worked with several companies as CTO and software engineering partner. The company also maintains several open source projects under the cwnt-io-org GitHub organization.
+CWNT has worked with several companies as CTO and software engineering partner. The company also maintains several open source projects under the cwnt-io GitHub organization.
 
 **Clients:**
 - VLG Investimentos (group: VLGI Asset, VLG Investimentos, VLGI Vida, VLGI Corporate, VLGI News)
@@ -25,12 +25,12 @@ CWNT has worked with several companies as CTO and software engineering partner. 
 - Quadrant Health (https://quadrant.health/)
 
 **Open Source Projects:**
-- mgmt (cwnt-io-org/mgmt)
-- cwnt-io-website (cwnt-io-org/cwnt-io-website)
-- ripissue (cwnt-io-org/ripissue)
-- ripcards (cwnt-io-org/ripcards)
-- candid-gen (cwnt-io-org/candid-gen)
-- brag-server (cwnt-io-org/brag-server)
+- mgmt (cwnt-io/mgmt)
+- cwnt-io-website (cwnt-io/cwnt-io-website)
+- ripissue (cwnt-io/ripissue)
+- ripcards (cwnt-io/ripcards)
+- candid-gen (cwnt-io/candid-gen)
+- brag-server (cwnt-io/brag-server)
 
 ## Acceptance Criteria
 
@@ -52,4 +52,4 @@ CWNT has worked with several companies as CTO and software engineering partner. 
 ## Notes
 
 - VLG group companies should be presented as a single client entry (VLG Investimentos group)
-- Open source links point to github.com/cwnt-io-org/{repo}
+- Open source links point to github.com/cwnt-io/{repo}
