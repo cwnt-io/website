@@ -5,11 +5,11 @@
 | Field       | Value                              |
 | ----------- | ---------------------------------- |
 | **ID**      | 00012                              |
-| **Status**  | `in-progress`                      |
+| **Status**  | `done`                             |
 | **Branch**  | `feat/hero-candlestick-bg`         |
 | **PR**      |                                    |
 | **Created** | 2026-07-30                         |
-| **Closed**  |                                    |
+| **Closed**  | 2026-07-30                         |
 
 ## Description
 
