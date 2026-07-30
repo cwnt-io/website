@@ -1,0 +1,51 @@
+name: Task ID Check
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, edited, synchronize]
+
+jobs:
+  check-task-id:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate task ID and task file
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          # 1. Extract task ID from PR title
+          TASK_ID=$(echo "$PR_TITLE" | grep -oP '^\[\K\d+(?=\])' || true)
+
+          if [ -z "$TASK_ID" ]; then
+            echo "::error::PR title must follow the format: [XXXXX] Title"
+            echo "::error::Example: [00001] Add task management system"
+            exit 1
+          fi
+
+          echo "Task ID: ${TASK_ID}"
+
+          # 2. Check task file exists in the PR branch
+          TASK_FILE=$(find .tasks -name "${TASK_ID}-*.md" -not -name "00000-template.md" 2>/dev/null | head -1)
+
+          if [ -z "$TASK_FILE" ]; then
+            echo "::error::No task file found for ID ${TASK_ID}."
+            echo "::error::Create .tasks/${TASK_ID}-your-task-slug.md before merging."
+            exit 1
+          fi
+
+          echo "Task file found: ${TASK_FILE}"
+
+          # 3. Check task ID is not already on main
+          MAIN_MATCH=$(git show origin/main:.tasks/ 2>/dev/null | grep -oP "^${TASK_ID}-.*\.md$" || true)
+
+          if [ -n "$MAIN_MATCH" ]; then
+            echo "::error::Task ID ${TASK_ID} already exists on main: .tasks/${MAIN_MATCH}"
+            echo "::error::Use a new incremental task ID."
+            exit 1
+          fi
+
+          echo "All checks passed."
