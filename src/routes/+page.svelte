@@ -2,6 +2,7 @@
 	import { t, changeLanguage, currentLanguage, type Language } from '$lib/i18n/index.svelte';
 	import { currentTheme, cycleTheme, type Theme } from '$lib/theme/index.svelte';
 	import { onMount } from 'svelte';
+	import logo from '$lib/assets/logo.png';
 
 	let lang: Language = $derived(currentLanguage());
 	let theme: Theme = $derived(currentTheme());
@@ -31,7 +32,7 @@
 <nav class:mounted>
 	<div class="nav-content">
 		<a href="/" class="nav-brand">
-			<img src="/logo.png" alt="CWNT" class="nav-logo" />
+			<img src={logo} alt="CWNT" class="nav-logo" />
 			<span class="nav-name">cwnt</span>
 		</a>
 		<div class="nav-links">
@@ -63,7 +64,7 @@
 		<div class="hero-grid"></div>
 	</div>
 	<div class="hero-content" class:mounted>
-		<img src="/logo.png" alt="CWNT" class="hero-logo" />
+		<img src={logo} alt="CWNT" class="hero-logo" />
 		<h1 class="hero-title">{t('hero.title')}</h1>
 		<p class="hero-subtitle">{t('hero.subtitle')}</p>
 		<div class="hero-cta">
@@ -109,6 +110,13 @@
 				<h3>{t('services.data.title')}</h3>
 				<p>{t('services.data.description')}</p>
 			</div>
+			<div class="service-card">
+				<div class="service-icon">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+				</div>
+				<h3>{t('services.training.title')}</h3>
+				<p>{t('services.training.description')}</p>
+			</div>
 		</div>
 	</section>
 
@@ -125,13 +133,6 @@
 				</div>
 				<h3>{t('clients.vlg.name')}</h3>
 				<p>{t('clients.vlg.description')}</p>
-			</div>
-			<div class="client-card">
-				<div class="client-icon">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-				</div>
-				<h3>{t('clients.planfy.name')}</h3>
-				<p>{t('clients.planfy.description')}</p>
 			</div>
 			<div class="client-card">
 				<a href="https://quadrant.health/" target="_blank" rel="noopener noreferrer" class="client-link">
@@ -199,7 +200,7 @@
 <footer>
 	<div class="footer-content">
 		<div class="footer-brand">
-			<img src="/logo.png" alt="CWNT" class="footer-logo" />
+			<img src={logo} alt="CWNT" class="footer-logo" />
 			<span class="footer-name">cwnt</span>
 		</div>
 		<span class="footer-rights">&copy; {new Date().getFullYear()} CWNT. {t('footer.rights')}</span>
@@ -317,6 +318,7 @@
 		position: absolute;
 		inset: 0;
 		pointer-events: none;
+		background: var(--hero-gradient);
 	}
 
 	.hero-orb {
