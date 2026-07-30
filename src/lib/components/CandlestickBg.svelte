@@ -57,19 +57,21 @@
 	let prices: Record<string, string> = $state({});
 	let changes: Record<string, number> = $state({});
 
-	function getColors(): { bull: string; bear: string; wick: string } {
+	function getColors(): { bull: string; bear: string; wick: string; priceLine: string } {
 		const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 		if (isDark) {
 			return {
 				bull: 'rgba(16, 185, 129, 0.25)',
 				bear: 'rgba(244, 63, 94, 0.2)',
-				wick: 'rgba(255, 255, 255, 0.07)'
+				wick: 'rgba(255, 255, 255, 0.07)',
+				priceLine: 'rgba(255, 255, 255, 0.12)'
 			};
 		}
 		return {
 			bull: 'rgba(5, 150, 105, 0.2)',
 			bear: 'rgba(225, 29, 72, 0.15)',
-			wick: 'rgba(0, 0, 0, 0.05)'
+			wick: 'rgba(0, 0, 0, 0.05)',
+			priceLine: 'rgba(0, 0, 0, 0.08)'
 		};
 	}
 
@@ -141,6 +143,17 @@
 			const bodyHeight = Math.max(bodyBottom - bodyTop, 1);
 			ctx.fillRect(x, bodyTop, CANDLE_WIDTH, bodyHeight);
 		}
+
+		const lastCandle = toRender[toRender.length - 1];
+		const lineY = toY(lastCandle.close);
+		ctx.strokeStyle = colors.priceLine;
+		ctx.lineWidth = 1;
+		ctx.setLineDash([6, 4]);
+		ctx.beginPath();
+		ctx.moveTo(0, lineY);
+		ctx.lineTo(w, lineY);
+		ctx.stroke();
+		ctx.setLineDash([]);
 	}
 
 	async function fetchHistory(symbol: string) {
