@@ -1,0 +1,47 @@
+{
+	"meta": {
+		"title": "CWNT - Desenvolvimento de Software & Consultoria em Tecnologia",
+		"description": "Construimos soluções de software e oferecemos consultoria em tecnologia para empresas no mundo todo."
+	},
+	"nav": {
+		"home": "Início",
+		"services": "Serviços",
+		"contact": "Contato"
+	},
+	"hero": {
+		"title": "Construindo o futuro, uma linha de cada vez",
+		"subtitle": "Desenvolvimento de software, consultoria em tecnologia e soluções digitais para empresas que querem ir rápido."
+	},
+	"services": {
+		"title": "O que fazemos",
+		"dev": {
+			"title": "Desenvolvimento de Software",
+			"description": "Software sob medida, aplicações web, apps mobile e APIs adaptadas às necessidades do seu negócio."
+		},
+		"consulting": {
+			"title": "Consultoria em Tecnologia",
+			"description": "Revisão de arquitetura, escolha de stack, infraestrutura cloud e orientação para transformação digital."
+		},
+		"licensing": {
+			"title": "Licenciamento de Software",
+			"description": "Desenvolvimento e licenciamento de produtos de software prontos para necessidades específicas do mercado."
+		},
+		"data": {
+			"title": "Dados & Hospedagem",
+			"description": "Processamento de dados, hospedagem de aplicações e infraestrutura de serviços na internet."
+		}
+	},
+	"contact": {
+		"title": "Entre em contato",
+		"email": "Email",
+		"location": "Localização",
+		"locationValue": "Brasil"
+	},
+	"footer": {
+		"rights": "Todos os direitos reservados."
+	},
+	"language": {
+		"en": "Inglês",
+		"pt": "Português"
+	}
+}

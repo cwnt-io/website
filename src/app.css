@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+	--color-bg: #0a0a0a;
+	--color-surface: #141414;
+	--color-border: #262626;
+	--color-text: #fafafa;
+	--color-text-muted: #a1a1aa;
+	--color-accent: #3b82f6;
+	--color-accent-hover: #2563eb;
+	--max-width: 1100px;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Inter', system-ui, -apple-system, sans-serif;
+	background-color: var(--color-bg);
+	color: var(--color-text);
+	line-height: 1.6;
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	color: var(--color-accent);
+	text-decoration: none;
+	transition: color 0.2s;
+}
+
+a:hover {
+	color: var(--color-accent-hover);
+}

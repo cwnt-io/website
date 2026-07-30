@@ -1,0 +1,47 @@
+{
+	"meta": {
+		"title": "CWNT - Software Development & Technology Consulting",
+		"description": "We build software solutions and provide technology consulting for businesses worldwide."
+	},
+	"nav": {
+		"home": "Home",
+		"services": "Services",
+		"contact": "Contact"
+	},
+	"hero": {
+		"title": "Building the future, one line at a time",
+		"subtitle": "Software development, technology consulting, and digital solutions for businesses that want to move fast."
+	},
+	"services": {
+		"title": "What we do",
+		"dev": {
+			"title": "Software Development",
+			"description": "Custom software, web applications, mobile apps, and APIs tailored to your business needs."
+		},
+		"consulting": {
+			"title": "Technology Consulting",
+			"description": "Architecture reviews, tech stack selection, cloud infrastructure, and digital transformation guidance."
+		},
+		"licensing": {
+			"title": "Software Licensing",
+			"description": "Development and licensing of ready-to-use software products for specific market needs."
+		},
+		"data": {
+			"title": "Data & Hosting",
+			"description": "Data processing, application hosting, and internet services infrastructure."
+		}
+	},
+	"contact": {
+		"title": "Get in touch",
+		"email": "Email",
+		"location": "Location",
+		"locationValue": "Brazil"
+	},
+	"footer": {
+		"rights": "All rights reserved."
+	},
+	"language": {
+		"en": "English",
+		"pt": "Portuguese"
+	}
+}
