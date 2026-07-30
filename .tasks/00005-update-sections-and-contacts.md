@@ -5,11 +5,11 @@
 | Field       | Value                                  |
 | ----------- | -------------------------------------- |
 | **ID**      | 00005                                  |
-| **Status**  | `in-progress`                          |
+| **Status**  | `done`                                 |
 | **Branch**  | `feat/update-sections-and-contacts`    |
 | **PR**      |                                        |
 | **Created** | 2026-07-30                             |
-| **Closed**  |                                        |
+| **Closed**  | 2026-07-30                             |
 
 ## Description
 
@@ -23,21 +23,28 @@ Reorder page sections, add new clients, and expand the contact section with soci
 
 ## Acceptance Criteria
 
-- [ ] Open Source section appears before Clients section
-- [ ] Scale AI added as client
-- [ ] FleetOps added as client
-- [ ] LinkedIn company page link in contact
-- [ ] GitHub organization link in contact
-- [ ] i18n translations updated (EN/PT)
-- [ ] Site builds successfully
+- [x] Open Source section appears before Clients section
+- [x] Scale AI added as client
+- [x] FleetOps added as client
+- [x] LinkedIn company page link in contact
+- [x] GitHub organization link in contact
+- [x] i18n translations updated (EN/PT)
+- [x] Site builds successfully
 
 ## Implementation Checklist
 
-- [ ] Reorder sections in +page.svelte (open source before clients)
-- [ ] Add Scale AI and FleetOps to i18n translations
-- [ ] Add client cards for Scale AI and FleetOps
-- [ ] Add LinkedIn and GitHub to contact translations and section
-- [ ] Test build
+- [x] Reorder sections in +page.svelte (open source before clients)
+- [x] Add Scale AI and FleetOps to i18n translations
+- [x] Add client cards for Scale AI and FleetOps
+- [x] Add LinkedIn and GitHub to contact translations and section
+- [x] Add client company logos (VLG, Quadrant, Scale, FleetOps)
+- [x] Add open source to services section
+- [x] Fix theme toggle needing 2 clicks
+- [x] Replace Svelte favicon with CWNT logo
+- [x] Add SEO meta tags
+- [x] Change email to root@cwnt.io
+- [x] Increase nav logo size
+- [x] Test build
 
 ## Notes
 
