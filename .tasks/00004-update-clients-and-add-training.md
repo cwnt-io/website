@@ -5,11 +5,11 @@
 | Field       | Value                                      |
 | ----------- | ------------------------------------------ |
 | **ID**      | 00004                                      |
-| **Status**  | `in-progress`                              |
+| **Status**  | `done`                                     |
 | **Branch**  | `feat/update-clients-add-training`         |
 | **PR**      |                                            |
 | **Created** | 2026-07-30                                 |
-| **Closed**  |                                            |
+| **Closed**  | 2026-07-30                                 |
 
 ## Description
 
@@ -25,19 +25,23 @@ Update the clients section and services section of the website. Remove SejaPlanf
 
 ## Acceptance Criteria
 
-- [ ] SejaPlanfy removed from clients section
-- [ ] Client descriptions rewritten as service provider (no CTO mention)
-- [ ] Quadrant Health description updated with AI healthcare focus
-- [ ] Training service card added to services section
-- [ ] i18n translations updated (EN/PT)
-- [ ] Site builds successfully
+- [x] SejaPlanfy removed from clients section
+- [x] Client descriptions rewritten as service provider (no CTO mention)
+- [x] Quadrant Health description updated with AI healthcare focus
+- [x] Training service card added to services section
+- [x] Logo displays correctly on GitHub Pages (fix broken path)
+- [x] Hero background more prominent and clean
+- [x] i18n translations updated (EN/PT)
+- [x] Site builds successfully
 
 ## Implementation Checklist
 
-- [ ] Update en.json: remove planfy, rewrite vlg/quadrant descriptions, add training service
-- [ ] Update pt.json: same changes
-- [ ] Update +page.svelte: remove planfy card, add training service card
-- [ ] Test build
+- [x] Fix logo path: import as Vite asset instead of absolute /logo.png
+- [x] Enhance hero background (stronger gradients, clean geometric feel)
+- [x] Update en.json: remove planfy, rewrite vlg/quadrant descriptions, add training service
+- [x] Update pt.json: same changes
+- [x] Update +page.svelte: remove planfy card, add training service card
+- [x] Test build
 
 ## Notes
 
