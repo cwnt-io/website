@@ -1,6 +1,7 @@
 import i18next from 'i18next';
 import en from './en.json';
 import pt from './pt.json';
+import { setUrlParam } from '$lib/url.svelte';
 
 export const supportedLanguages = ['en', 'pt'] as const;
 export type Language = (typeof supportedLanguages)[number];
@@ -9,6 +10,10 @@ const STORAGE_KEY = 'cwnt-lang';
 
 function getInitialLanguage(): Language {
 	if (typeof window !== 'undefined') {
+		const urlParam = new URLSearchParams(window.location.search).get('lang');
+		if (urlParam && supportedLanguages.includes(urlParam as Language)) {
+			return urlParam as Language;
+		}
 		const stored = localStorage.getItem(STORAGE_KEY);
 		if (stored && supportedLanguages.includes(stored as Language)) {
 			return stored as Language;
@@ -45,6 +50,7 @@ export function changeLanguage(lang: Language): void {
 	if (typeof window !== 'undefined') {
 		localStorage.setItem(STORAGE_KEY, lang);
 		document.documentElement.lang = lang;
+		setUrlParam('lang', lang);
 	}
 }
 
