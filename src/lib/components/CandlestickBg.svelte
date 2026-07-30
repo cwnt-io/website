@@ -57,21 +57,23 @@
 	let prices: Record<string, string> = $state({});
 	let changes: Record<string, number> = $state({});
 
-	function getColors(): { bull: string; bear: string; wick: string; priceLine: string } {
+	function getColors(): { bull: string; bear: string; wick: string; priceLine: string; priceLabel: string } {
 		const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
 		if (isDark) {
 			return {
 				bull: 'rgba(16, 185, 129, 0.25)',
 				bear: 'rgba(244, 63, 94, 0.2)',
 				wick: 'rgba(255, 255, 255, 0.07)',
-				priceLine: 'rgba(255, 255, 255, 0.12)'
+				priceLine: 'rgba(255, 255, 255, 0.12)',
+				priceLabel: 'rgba(255, 255, 255, 0.55)'
 			};
 		}
 		return {
 			bull: 'rgba(5, 150, 105, 0.2)',
 			bear: 'rgba(225, 29, 72, 0.15)',
 			wick: 'rgba(0, 0, 0, 0.05)',
-			priceLine: 'rgba(0, 0, 0, 0.08)'
+			priceLine: 'rgba(0, 0, 0, 0.08)',
+			priceLabel: 'rgba(0, 0, 0, 0.4)'
 		};
 	}
 
@@ -160,7 +162,7 @@
 			maximumFractionDigits: 2
 		});
 		ctx.font = '10px monospace';
-		ctx.fillStyle = colors.priceLine;
+		ctx.fillStyle = colors.priceLabel;
 		const textWidth = ctx.measureText(priceText).width;
 		const labelPadding = 4;
 		const labelX = w - textWidth - labelPadding * 2;
