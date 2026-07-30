@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { t, changeLanguage, currentLanguage, type Language } from '$lib/i18n';
-	import { currentTheme, cycleTheme, type Theme } from '$lib/theme';
+	import { t, changeLanguage, currentLanguage, type Language } from '$lib/i18n/index.svelte';
+	import { currentTheme, cycleTheme, type Theme } from '$lib/theme/index.svelte';
 	import { onMount } from 'svelte';
 
 	let lang: Language = $derived(currentLanguage());
