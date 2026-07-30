@@ -3,6 +3,7 @@
 	import '$lib/i18n/index.svelte';
 	import { onMount } from 'svelte';
 	import { initTheme } from '$lib/theme/index.svelte';
+	import { base } from '$app/paths';
 
 	let { children } = $props();
 
@@ -12,7 +13,7 @@
 </script>
 
 <svelte:head>
-	<link rel="icon" href="/favicon.svg" />
+	<link rel="icon" href="{base}/favicon.svg" />
 </svelte:head>
 
 {@render children()}
