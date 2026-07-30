@@ -64,7 +64,6 @@
 		"tag": "Open Source",
 		"title": "Our open source projects",
 		"mgmt": "Task and project management tool",
-		"cwnt-io-website": "This website — built with SvelteKit",
 		"ripissue": "Git-native issue tracking",
 		"ripcards": "Flashcard learning system",
 		"candid-gen": "Candid interface generator",

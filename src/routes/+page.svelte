@@ -160,7 +160,7 @@
 			<h2>{t('opensource.title')}</h2>
 		</div>
 		<div class="opensource-grid">
-			{#each ['mgmt', 'ripissue', 'ripcards', 'cwnt-io-website', 'candid-gen', 'brag-server'] as repo}
+			{#each ['mgmt', 'ripissue', 'ripcards', 'candid-gen', 'brag-server'] as repo}
 				<a
 					href="https://github.com/cwnt-io/{repo}"
 					target="_blank"
