@@ -1,3 +1,5 @@
+import { setUrlParam } from '$lib/url.svelte';
+
 export type Theme = 'system' | 'light' | 'dark';
 export type ResolvedTheme = 'light' | 'dark';
 
@@ -6,6 +8,10 @@ const THEMES: Theme[] = ['light', 'dark', 'system'];
 
 function getInitialTheme(): Theme {
 	if (typeof window !== 'undefined') {
+		const urlParam = new URLSearchParams(window.location.search).get('theme');
+		if (urlParam && THEMES.includes(urlParam as Theme)) {
+			return urlParam as Theme;
+		}
 		const stored = localStorage.getItem(STORAGE_KEY) as Theme | null;
 		if (stored && THEMES.includes(stored)) {
 			return stored;
@@ -42,6 +48,7 @@ export function setTheme(theme: Theme): void {
 	if (typeof window !== 'undefined') {
 		localStorage.setItem(STORAGE_KEY, theme);
 		applyTheme(theme);
+		setUrlParam('theme', theme);
 	}
 }
 
