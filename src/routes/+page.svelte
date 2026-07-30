@@ -3,6 +3,10 @@
 	import { currentTheme, cycleTheme, type Theme } from '$lib/theme/index.svelte';
 	import { onMount } from 'svelte';
 	import logo from '$lib/assets/logo.png';
+	import logoVlg from '$lib/assets/clients/vlg.png';
+	import logoQuadrant from '$lib/assets/clients/quadrant.svg';
+	import logoScale from '$lib/assets/clients/scale.svg';
+	import logoFleetops from '$lib/assets/clients/fleetops.svg';
 
 	let lang: Language = $derived(currentLanguage());
 	let theme: Theme = $derived(currentTheme());
@@ -26,6 +30,16 @@
 <svelte:head>
 	<title>{t('meta.title')}</title>
 	<meta name="description" content={t('meta.description')} />
+	<meta name="robots" content="index, follow" />
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content={t('meta.title')} />
+	<meta property="og:description" content={t('meta.description')} />
+	<meta property="og:image" content={logo} />
+	<meta property="og:site_name" content="CWNT" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content={t('meta.title')} />
+	<meta name="twitter:description" content={t('meta.description')} />
+	<link rel="canonical" href="https://cwnt.io/" />
 </svelte:head>
 
 <!-- Navigation -->
@@ -117,31 +131,12 @@
 				<h3>{t('services.training.title')}</h3>
 				<p>{t('services.training.description')}</p>
 			</div>
-		</div>
-	</section>
-
-	<!-- Clients -->
-	<section id="clients" class="clients">
-		<div class="section-header">
-			<span class="section-tag">{t('clients.tag')}</span>
-			<h2>{t('clients.title')}</h2>
-		</div>
-		<div class="clients-grid">
-			<div class="client-card">
-				<div class="client-icon">
-					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+			<div class="service-card">
+				<div class="service-icon">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
 				</div>
-				<h3>{t('clients.vlg.name')}</h3>
-				<p>{t('clients.vlg.description')}</p>
-			</div>
-			<div class="client-card">
-				<a href="https://quadrant.health/" target="_blank" rel="noopener noreferrer" class="client-link">
-					<div class="client-icon client-icon--green">
-						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
-					</div>
-					<h3>{t('clients.quadrant.name')}<span class="external-arrow">&nearr;</span></h3>
-					<p>{t('clients.quadrant.description')}</p>
-				</a>
+				<h3>{t('services.opensource.title')}</h3>
+				<p>{t('services.opensource.description')}</p>
 			</div>
 		</div>
 	</section>
@@ -171,6 +166,50 @@
 		</div>
 	</section>
 
+	<!-- Clients -->
+	<section id="clients" class="clients">
+		<div class="section-header">
+			<span class="section-tag">{t('clients.tag')}</span>
+			<h2>{t('clients.title')}</h2>
+		</div>
+		<div class="clients-grid">
+			<div class="client-card">
+				<div class="client-logo">
+					<img src={logoVlg} alt="VLG Investimentos" />
+				</div>
+				<h3>{t('clients.vlg.name')}</h3>
+				<p>{t('clients.vlg.description')}</p>
+			</div>
+			<div class="client-card">
+				<a href="https://quadrant.health/" target="_blank" rel="noopener noreferrer" class="client-link">
+					<div class="client-logo">
+						<img src={logoQuadrant} alt="Quadrant Health" />
+					</div>
+					<h3>{t('clients.quadrant.name')}<span class="external-arrow">&nearr;</span></h3>
+					<p>{t('clients.quadrant.description')}</p>
+				</a>
+			</div>
+			<div class="client-card">
+				<a href="https://scale.com/" target="_blank" rel="noopener noreferrer" class="client-link">
+					<div class="client-logo">
+						<img src={logoScale} alt="Scale AI" class="logo-invertible" />
+					</div>
+					<h3>{t('clients.scale.name')}<span class="external-arrow">&nearr;</span></h3>
+					<p>{t('clients.scale.description')}</p>
+				</a>
+			</div>
+			<div class="client-card">
+				<a href="https://www.fleetops.com/" target="_blank" rel="noopener noreferrer" class="client-link">
+					<div class="client-logo">
+						<img src={logoFleetops} alt="FleetOps" class="logo-invertible" />
+					</div>
+					<h3>{t('clients.fleetops.name')}<span class="external-arrow">&nearr;</span></h3>
+					<p>{t('clients.fleetops.description')}</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
 	<!-- Contact -->
 	<section id="contact" class="contact">
 		<div class="section-header">
@@ -183,7 +222,7 @@
 					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
 				</div>
 				<span class="contact-label">{t('contact.email')}</span>
-				<a href="mailto:contact@cwnt.io" class="contact-value">contact@cwnt.io</a>
+				<a href="mailto:root@cwnt.io" class="contact-value">root@cwnt.io</a>
 			</div>
 			<div class="contact-card">
 				<div class="contact-icon">
@@ -191,6 +230,20 @@
 				</div>
 				<span class="contact-label">{t('contact.location')}</span>
 				<span class="contact-value">{t('contact.locationValue')}</span>
+			</div>
+			<div class="contact-card">
+				<div class="contact-icon">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+				</div>
+				<span class="contact-label">{t('contact.linkedin')}</span>
+				<a href="https://linkedin.com/company/cwnt/" target="_blank" rel="noopener noreferrer" class="contact-value">linkedin.com/company/cwnt</a>
+			</div>
+			<div class="contact-card">
+				<div class="contact-icon">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+				</div>
+				<span class="contact-label">{t('contact.github')}</span>
+				<a href="https://github.com/cwnt-io" target="_blank" rel="noopener noreferrer" class="contact-value">github.com/cwnt-io</a>
 			</div>
 		</div>
 	</section>
@@ -246,8 +299,8 @@
 	}
 
 	.nav-logo {
-		width: 28px;
-		height: 28px;
+		width: 36px;
+		height: 36px;
 		image-rendering: pixelated;
 	}
 
@@ -579,89 +632,6 @@
 	}
 
 	/* ========================
-	   Clients
-	   ======================== */
-	.clients {
-		padding: 0 0 8rem;
-	}
-
-	.clients-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-		gap: 1.25rem;
-	}
-
-	.client-card {
-		background: var(--color-surface);
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius);
-		padding: 2rem;
-		transition: all var(--transition);
-		position: relative;
-		overflow: hidden;
-	}
-
-	.client-card:hover {
-		border-color: var(--color-border-hover);
-		transform: translateY(-2px);
-		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-	}
-
-	.client-link {
-		display: block;
-		text-decoration: none;
-		color: inherit;
-	}
-
-	.client-icon {
-		width: 44px;
-		height: 44px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background: var(--color-accent-glow);
-		border-radius: 10px;
-		margin-bottom: 1.25rem;
-		color: var(--color-accent);
-	}
-
-	.client-icon--green {
-		background: var(--color-green-glow);
-		color: var(--color-green);
-	}
-
-	.client-icon svg {
-		width: 22px;
-		height: 22px;
-	}
-
-	.client-card h3 {
-		font-size: 1.1rem;
-		font-weight: 600;
-		margin-bottom: 0.6rem;
-		display: flex;
-		align-items: center;
-		gap: 0.35rem;
-	}
-
-	.client-card p {
-		color: var(--color-text-muted);
-		font-size: 0.9rem;
-		line-height: 1.65;
-	}
-
-	.external-arrow {
-		font-size: 0.85em;
-		opacity: 0.5;
-		transition: opacity var(--transition);
-	}
-
-	.client-card:hover .external-arrow,
-	.repo-card:hover .external-arrow {
-		opacity: 1;
-	}
-
-	/* ========================
 	   Open Source
 	   ======================== */
 	.opensource {
@@ -725,6 +695,86 @@
 	}
 
 	/* ========================
+	   Clients
+	   ======================== */
+	.clients {
+		padding: 0 0 8rem;
+	}
+
+	.clients-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		gap: 1.25rem;
+	}
+
+	.client-card {
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius);
+		padding: 2rem;
+		transition: all var(--transition);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.client-card:hover {
+		border-color: var(--color-border-hover);
+		transform: translateY(-2px);
+		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+	}
+
+	.client-link {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.client-logo {
+		width: 48px;
+		height: 48px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 1.25rem;
+	}
+
+	.client-logo img {
+		max-width: 48px;
+		max-height: 48px;
+		object-fit: contain;
+	}
+
+	:global([data-theme='dark']) .logo-invertible {
+		filter: invert(1) brightness(1.2);
+	}
+
+	.client-card h3 {
+		font-size: 1.1rem;
+		font-weight: 600;
+		margin-bottom: 0.6rem;
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+	}
+
+	.client-card p {
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+		line-height: 1.65;
+	}
+
+	.external-arrow {
+		font-size: 0.85em;
+		opacity: 0.5;
+		transition: opacity var(--transition);
+	}
+
+	.client-card:hover .external-arrow,
+	.repo-card:hover .external-arrow {
+		opacity: 1;
+	}
+
+	/* ========================
 	   Contact
 	   ======================== */
 	.contact {
@@ -733,7 +783,7 @@
 
 	.contact-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 		gap: 1.25rem;
 	}
 
@@ -778,7 +828,7 @@
 	}
 
 	.contact-value {
-		font-size: 1.1rem;
+		font-size: 1.05rem;
 		font-weight: 500;
 		color: var(--color-text);
 	}

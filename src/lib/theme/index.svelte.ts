@@ -2,7 +2,7 @@ export type Theme = 'system' | 'light' | 'dark';
 export type ResolvedTheme = 'light' | 'dark';
 
 const STORAGE_KEY = 'cwnt-theme';
-const THEMES: Theme[] = ['system', 'dark', 'light'];
+const THEMES: Theme[] = ['light', 'dark', 'system'];
 
 function getInitialTheme(): Theme {
 	if (typeof window !== 'undefined') {
@@ -46,8 +46,14 @@ export function setTheme(theme: Theme): void {
 }
 
 export function cycleTheme(): void {
-	const idx = THEMES.indexOf(_theme);
-	setTheme(THEMES[(idx + 1) % THEMES.length]);
+	const currentResolved = resolveTheme(_theme);
+	let idx = THEMES.indexOf(_theme);
+	let next: Theme;
+	do {
+		idx = (idx + 1) % THEMES.length;
+		next = THEMES[idx];
+	} while (resolveTheme(next) === currentResolved && next !== _theme);
+	setTheme(next);
 }
 
 export function initTheme(): void {

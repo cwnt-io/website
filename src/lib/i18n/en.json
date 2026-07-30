@@ -33,6 +33,10 @@
 		"training": {
 			"title": "Training",
 			"description": "Technical training and workshops on software development, architecture, and modern engineering practices."
+		},
+		"opensource": {
+			"title": "Open Source",
+			"description": "We build and maintain open source tools, contributing to the developer community and driving innovation."
 		}
 	},
 	"clients": {
@@ -45,6 +49,15 @@
 		"quadrant": {
 			"name": "Quadrant Health",
 			"description": "Software development for a healthcare company building AI-powered agents for clinical operations."
+		},
+		"scale": {
+			"name": "Scale AI",
+			"description": "Software development for an AI data and evaluation platform powering enterprise and government applications."
+		},
+		"fleetops": {
+			"name": "FleetOps",
+			"url": "https://www.fleetops.com/",
+			"description": "Software development for a fleet management and logistics operations platform."
 		}
 	},
 	"opensource": {
@@ -61,7 +74,9 @@
 		"title": "Get in touch",
 		"email": "Email",
 		"location": "Location",
-		"locationValue": "Brazil"
+		"locationValue": "Brazil",
+		"linkedin": "LinkedIn",
+		"github": "GitHub"
 	},
 	"footer": {
 		"rights": "All rights reserved."
