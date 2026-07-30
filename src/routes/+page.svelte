@@ -150,7 +150,7 @@
 		<div class="opensource-grid">
 			{#each ['mgmt', 'ripissue', 'ripcards', 'cwnt-io-website', 'candid-gen', 'brag-server'] as repo}
 				<a
-					href="https://github.com/cwnt-io-org/{repo}"
+					href="https://github.com/cwnt-io/{repo}"
 					target="_blank"
 					rel="noopener noreferrer"
 					class="repo-card"
