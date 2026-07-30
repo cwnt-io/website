@@ -31,6 +31,32 @@
 			"description": "Data processing, application hosting, and internet services infrastructure."
 		}
 	},
+	"clients": {
+		"tag": "Clients",
+		"title": "Who we work with",
+		"vlg": {
+			"name": "VLG Investimentos",
+			"description": "CTO and software engineering for a financial group spanning asset management, insurance, corporate services, and media."
+		},
+		"planfy": {
+			"name": "SejaPlanfy",
+			"description": "CTO and software engineering for a financial planning and advisory platform."
+		},
+		"quadrant": {
+			"name": "Quadrant Health",
+			"description": "Software development for a healthcare technology company."
+		}
+	},
+	"opensource": {
+		"tag": "Open Source",
+		"title": "Our open source projects",
+		"mgmt": "Task and project management tool",
+		"cwnt-io-website": "This website — built with SvelteKit",
+		"ripissue": "Git-native issue tracking",
+		"ripcards": "Flashcard learning system",
+		"candid-gen": "Candid interface generator",
+		"brag-server": "Brag document server"
+	},
 	"contact": {
 		"title": "Get in touch",
 		"email": "Email",

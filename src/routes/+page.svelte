@@ -112,6 +112,64 @@
 		</div>
 	</section>
 
+	<!-- Clients -->
+	<section id="clients" class="clients">
+		<div class="section-header">
+			<span class="section-tag">{t('clients.tag')}</span>
+			<h2>{t('clients.title')}</h2>
+		</div>
+		<div class="clients-grid">
+			<div class="client-card">
+				<div class="client-icon">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+				</div>
+				<h3>{t('clients.vlg.name')}</h3>
+				<p>{t('clients.vlg.description')}</p>
+			</div>
+			<div class="client-card">
+				<div class="client-icon">
+					<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+				</div>
+				<h3>{t('clients.planfy.name')}</h3>
+				<p>{t('clients.planfy.description')}</p>
+			</div>
+			<div class="client-card">
+				<a href="https://quadrant.health/" target="_blank" rel="noopener noreferrer" class="client-link">
+					<div class="client-icon client-icon--green">
+						<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"></path></svg>
+					</div>
+					<h3>{t('clients.quadrant.name')}<span class="external-arrow">&nearr;</span></h3>
+					<p>{t('clients.quadrant.description')}</p>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Open Source -->
+	<section id="opensource" class="opensource">
+		<div class="section-header">
+			<span class="section-tag">{t('opensource.tag')}</span>
+			<h2>{t('opensource.title')}</h2>
+		</div>
+		<div class="opensource-grid">
+			{#each ['mgmt', 'ripissue', 'ripcards', 'cwnt-io-website', 'candid-gen', 'brag-server'] as repo}
+				<a
+					href="https://github.com/cwnt-io-org/{repo}"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="repo-card"
+				>
+					<div class="repo-header">
+						<svg class="repo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+						<span class="repo-name">{repo}</span>
+						<span class="external-arrow">&nearr;</span>
+					</div>
+					<p class="repo-desc">{t(`opensource.${repo}`)}</p>
+				</a>
+			{/each}
+		</div>
+	</section>
+
 	<!-- Contact -->
 	<section id="contact" class="contact">
 		<div class="section-header">
@@ -516,6 +574,152 @@
 		font-size: 0.9rem;
 		line-height: 1.65;
 		position: relative;
+	}
+
+	/* ========================
+	   Clients
+	   ======================== */
+	.clients {
+		padding: 0 0 8rem;
+	}
+
+	.clients-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: 1.25rem;
+	}
+
+	.client-card {
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius);
+		padding: 2rem;
+		transition: all var(--transition);
+		position: relative;
+		overflow: hidden;
+	}
+
+	.client-card:hover {
+		border-color: var(--color-border-hover);
+		transform: translateY(-2px);
+		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+	}
+
+	.client-link {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.client-icon {
+		width: 44px;
+		height: 44px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: var(--color-accent-glow);
+		border-radius: 10px;
+		margin-bottom: 1.25rem;
+		color: var(--color-accent);
+	}
+
+	.client-icon--green {
+		background: var(--color-green-glow);
+		color: var(--color-green);
+	}
+
+	.client-icon svg {
+		width: 22px;
+		height: 22px;
+	}
+
+	.client-card h3 {
+		font-size: 1.1rem;
+		font-weight: 600;
+		margin-bottom: 0.6rem;
+		display: flex;
+		align-items: center;
+		gap: 0.35rem;
+	}
+
+	.client-card p {
+		color: var(--color-text-muted);
+		font-size: 0.9rem;
+		line-height: 1.65;
+	}
+
+	.external-arrow {
+		font-size: 0.85em;
+		opacity: 0.5;
+		transition: opacity var(--transition);
+	}
+
+	.client-card:hover .external-arrow,
+	.repo-card:hover .external-arrow {
+		opacity: 1;
+	}
+
+	/* ========================
+	   Open Source
+	   ======================== */
+	.opensource {
+		padding: 0 0 8rem;
+	}
+
+	.opensource-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 1rem;
+	}
+
+	.repo-card {
+		display: block;
+		background: var(--color-surface);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius);
+		padding: 1.5rem;
+		text-decoration: none;
+		color: inherit;
+		transition: all var(--transition);
+	}
+
+	.repo-card:hover {
+		border-color: var(--color-border-hover);
+		transform: translateY(-2px);
+		box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+		color: inherit;
+	}
+
+	.repo-header {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.repo-icon {
+		width: 18px;
+		height: 18px;
+		color: var(--color-text-muted);
+		flex-shrink: 0;
+	}
+
+	.repo-name {
+		font-family: var(--font-mono);
+		font-size: 0.95rem;
+		font-weight: 600;
+		color: var(--color-accent);
+	}
+
+	.repo-header .external-arrow {
+		margin-left: auto;
+		color: var(--color-text-muted);
+	}
+
+	.repo-desc {
+		color: var(--color-text-muted);
+		font-size: 0.85rem;
+		line-height: 1.5;
 	}
 
 	/* ========================
