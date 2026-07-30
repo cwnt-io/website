@@ -154,6 +154,18 @@
 		ctx.lineTo(w, lineY);
 		ctx.stroke();
 		ctx.setLineDash([]);
+
+		const priceText = lastCandle.close.toLocaleString('en-US', {
+			minimumFractionDigits: 2,
+			maximumFractionDigits: 2
+		});
+		ctx.font = '10px monospace';
+		ctx.fillStyle = colors.priceLine;
+		const textWidth = ctx.measureText(priceText).width;
+		const labelPadding = 4;
+		const labelX = w - textWidth - labelPadding * 2;
+		const labelY = lineY - 12;
+		ctx.fillText(priceText, labelX + labelPadding, labelY + 10);
 	}
 
 	async function fetchHistory(symbol: string) {
