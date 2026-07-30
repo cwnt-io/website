@@ -43,5 +43,10 @@
 	"language": {
 		"en": "English",
 		"pt": "Portuguese"
+	},
+	"theme": {
+		"system": "System",
+		"light": "Light",
+		"dark": "Dark"
 	}
 }
